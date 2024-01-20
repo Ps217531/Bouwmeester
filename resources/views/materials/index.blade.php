@@ -28,6 +28,7 @@
                         <table class="w-full">
                             <thead>
                                 <tr>
+                                    <i class="fa-solid fa-user">cdscsdc</i>
                                     <th class="text-left">Name</th>
                                     <th class="text-left">Avaibility</th>
                                     <th class="text-left">Location</th>
@@ -70,4 +71,5 @@
                                         </td>
                                     </tr>
                                 @endforeach
+                                
     </x-app-layout>
