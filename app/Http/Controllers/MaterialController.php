@@ -74,7 +74,10 @@ class MaterialController extends Controller
      */
     public function edit(Material $material)
     {
-        //
+        $material->load('projects');
+        return view('materials.edit', [
+            'material' => $material,
+        ]);
     }
 
     /**
@@ -82,7 +85,25 @@ class MaterialController extends Controller
      */
     public function update(UpdateMaterialRequest $request, Material $material)
     {
-        //
+        try {
+  
+
+            $material->update([
+                'name' => $request->name,
+                'avaibility' => $request->avaibility,
+                'location' => $request->location,
+                'cost_per_unit' => $request->cost_per_unit,
+            ]);
+    
+       
+    
+            return redirect()->route('materials.index')->with([
+                'success' => 'material updated!',
+            ]);
+        } catch (\Exception $e) {
+            // Handle the exception here
+            return redirect()->back()->with('error', 'An error occurred while updating the material.');
+        }
     }
 
     /**
@@ -91,7 +112,7 @@ class MaterialController extends Controller
     public function destroy(Material $material)
     {
          try {
-            $material->delete(); // Delete article
+            $material->delete(); // Delete material
 
             return redirect()->route('materials.index')->with('success', 'material deleted!');
         } catch (\Exception $e) {

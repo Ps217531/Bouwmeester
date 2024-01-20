@@ -16,13 +16,13 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    {{-- <x-nav-link :href="route('articles.index')" :active="request()->routeIs('articles.index')">
-                        {{ __('Articles') }}
+                    <x-nav-link :href="route('materials.index')" :active="request()->routeIs('materials.index')">
+                        {{ __('Materials') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
-                        {{ __('Categories') }}
-                    </x-nav-link> --}}
+                    <x-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.index')">
+                        {{ __('Projects') }}
+                    </x-nav-link>
                     
                 </div>
             </div>

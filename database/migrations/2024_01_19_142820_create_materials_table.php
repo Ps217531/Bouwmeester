@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('avaibility');
             $table->string('location');
-            $table->integer('cost_per_unit');
+            $table->double('cost_per_unit');
             $table->timestamps();
         });
     }
