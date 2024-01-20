@@ -62,7 +62,11 @@ class MaterialController extends Controller
      */
     public function show(Material $material)
     {
-        //
+
+        $material->load('projects');
+        return view('materials.show', [
+            'material' => $material,
+        ]);
     }
 
     /**
@@ -86,6 +90,14 @@ class MaterialController extends Controller
      */
     public function destroy(Material $material)
     {
-        //
+         try {
+            $material->delete(); // Delete article
+
+            return redirect()->route('materials.index')->with('success', 'material deleted!');
+        } catch (\Exception $e) {
+            // Handle the exception here
+            dd($e);
+            return redirect()->back()->with('error', 'An error occurred while deleting the material.');
+        }
     }
 }
