@@ -22,7 +22,10 @@ class StoreMaterialRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'avaibility' => 'required|integer',
+            'location' => 'required|string|max:255',
+            'cost_per_unit' => 'required|regex:/^\d+(\.\d{1,2})?$/',
         ];
     }
 }
