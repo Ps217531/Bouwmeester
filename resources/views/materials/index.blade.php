@@ -28,7 +28,6 @@
                         <table class="w-full">
                             <thead>
                                 <tr>
-                                    <i class="fa-solid fa-user">cdscsdc</i>
                                     <th class="text-left">Name</th>
                                     <th class="text-left">Avaibility</th>
                                     <th class="text-left">Location</th>
@@ -39,15 +38,11 @@
                             <tbody>
                                 @foreach ($materials as $material)
                                     <tr>
-                                        <td>{{ $material->title }}</td>
+                                        <td>{{ $material->name }}</td>
                                         <td>{{ \Illuminate\Support\Str::limit($material->name, 50) }}</td>
                                       
                                             <td>
-                                                {{-- @if ($projects->project)
-                                                @foreach ($project->materials as $material)
-                                                {{ $material->name }}
-                                            @endforeach     
-                                                @endif --}}
+                                                {{ $material->location }}
                                             </td>
                                             
                                       

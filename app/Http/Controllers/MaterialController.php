@@ -25,7 +25,9 @@ class MaterialController extends Controller
      */
     public function create()
     {
-        //
+        //projects if want to show in create form
+        //$projects = Project::all();
+        return view('materials.create');
     }
 
     /**
@@ -33,7 +35,26 @@ class MaterialController extends Controller
      */
     public function store(StoreMaterialRequest $request)
     {
-        //
+        $validated = $request->validated();
+        
+       
+    
+
+        try {
+      $material = Material::create([
+            'name' => $request->name,
+            'avaibility' => $request->avaibility,
+            'location' => $request->location,
+            'cost_per_unit' => $request->cost_per_unit,
+        ]);
+
+
+        
+        return redirect()->route('materials.index')->with('success', 'Material created successfully.'); 
+    } catch (\Exception $e) {
+        return redirect()->route('materials.index')->with('error', 'Something went wrong.');
+
+    }
     }
 
     /**
