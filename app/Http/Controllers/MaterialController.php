@@ -13,7 +13,11 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        //
+    $materials = Material::with('projects')->get();
+
+      return view('materials.index', [
+        'materials' => $materials,
+    ]);
     }
 
     /**
